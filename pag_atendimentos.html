@@ -1,0 +1,166 @@
+<DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="utf-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, 
+            maximum-scale=1">
+    
+            <link rel="stylesheet" href="css/style_atendimentos.css">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+            <script src="https://kit.fontawesome.com/632fa79223.js" crossorigin="anonymous"></script>
+            <title>Atendimentos - Vet Calendar</title>
+        </head>
+    
+        <body>
+            <div class="s-layout">
+                <!-- Sidebar -->
+                <div class="s-layout__sidebar">
+                    <a class="s-sidebar__trigger" href="#0">
+                        <img id="icon-bars" src="img/icons/bars.png">                    
+                    </a>
+                
+                    <nav class="s-sidebar__nav">
+                        <ul>
+                            <li>
+                                <a id="home" onclick="home(); return false;" class="s-sidebar__nav-link" href="#0">
+                                    <img id="inicio" src="img/icons/home.png"><em>Início</em>
+                                </a>
+                            </li>
+                            <li>
+                                <a id="atendimentos" class="s-sidebar__nav-link" href="#0">
+                                    <img id="icon" src="img/icons/atendimentos.png"><em>Atendimentos</em>
+                                </a>
+                            </li>
+                            <li>
+                                <a id="pacientes" onclick="pacientes(); return false;" class="s-sidebar__nav-link" href="#0">
+                                    <img id="icon" src="img/icons/pacientes.png"><em>Pacientes</em>
+                                </a>
+                            </li>
+                            <li>
+                                <a id="usuario" onclick="usuario(); return false;" class="s-sidebar__nav-link" href="#0">
+                                    <img id="icon" src="img/icons/usuario.png"><em>Usuário</em>
+                                </a>
+                            </li>
+                            <li>
+                                <a id="logout" onclick="logout(); return false;" class="s-sidebar__nav-link" href="#0">
+                                    <img id="icon" src="img/icons/logout.png"><em>Sair</em>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <!-- Content -->
+                <main class="s-layout__content">
+                    <div class=content>
+                        <h1>Atendimentos</h1>
+                        <form id="treats-form">
+                            <button onclick="newTreat(); return false;" class="btn btn-small" id="new-treat">Novo atendimento</button>
+                            <input 
+                                type="text" 
+                                name="search-treat" 
+                                id="search-treat" 
+                                placeholder="Pesquisar atendimento..." />
+                            <button onclick="loadTreatsSearch(); return false;" type="submit" class="btn btn-small" id="search-treat-submit"><i class="fas fa-search"></i></button>
+                        </form>
+                        <table id="table" class="table table-striped">
+                            <thead>
+                                <tr class="first-row">
+                                    <th onclick="orderByNumber()" scope="col">No.</th>
+                                    <th onclick="orderByPatient()" scope="col">Paciente</th>
+                                    <th onclick="orderByAnimal()" scope="col">Animal</th>
+                                    <th onclick="orderByDate()" scope="col">Data</th>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </thead>
+                            <tbody onload="loadTreats()">
+                                <tr>
+                                    <th class="info" scope="row">1</th>
+                                    <td class="info">Sol</td>
+                                    <td class="info">Cachorro</td>
+                                    <td class="info">29/10/2000</td>
+                                    <td><button id="button-edit">Editar</button></td>
+                                    <td><button id="button-delete">Excluir</button></td>
+                                </tr>
+                                <tr>
+                                    <th class="info" scope="row">2</th>
+                                    <td class="info">Namaria</td>
+                                    <td class="info">Passaro</td>
+                                    <td class="info">02/01/2020</td>
+                                    <td><button id="button-edit">Editar</button></td>
+                                    <td><button id="button-delete">Excluir</button></td>
+                                </tr>
+                                <tr>
+                                    <th class="info" scope="row">1</th>
+                                    <td class="info">Sol</td>
+                                    <td class="info">Cachorro</td>
+                                    <td class="info">29/10/2000</td>
+                                    <td><button id="button-edit">Editar</button></td>
+                                    <td><button id="button-delete">Excluir</button></td>
+                                </tr>
+                                <tr>
+                                    <th class="info" scope="row">1</th>
+                                    <td class="info">Sol</td>
+                                    <td class="info">Cachorro</td>
+                                    <td class="info">29/10/2000</td>
+                                    <td><button id="button-edit">Editar</button></td>
+                                    <td><button id="button-delete">Excluir</button></td>
+                                </tr>
+                                <tr>
+                                    <th class="info" scope="row">1</th>
+                                    <td class="info">Sol</td>
+                                    <td class="info">Cachorro</td>
+                                    <td class="info">29/10/2000</td>
+                                    <td><button id="button-edit">Editar</button></td>
+                                    <td><button id="button-delete">Excluir</button></td>
+                                </tr>
+                                <tr>
+                                    <th class="info" scope="row">1</th>
+                                    <td class="info">Sol</td>
+                                    <td class="info">Cachorro</td>
+                                    <td class="info">29/10/2000</td>
+                                    <td><button id="button-edit">Editar</button></td>
+                                    <td><button id="button-delete">Excluir</button></td>
+                                </tr>
+                                <tr>
+                                    <th class="info" scope="row">1</th>
+                                    <td class="info">Sol</td>
+                                    <td class="info">Cachorro</td>
+                                    <td class="info">29/10/2000</td>
+                                    <td><button id="button-edit">Editar</button></td>
+                                    <td><button id="button-delete">Excluir</button></td>
+                                </tr>
+                                <tr>
+                                    <th class="info" scope="row">1</th>
+                                    <td class="info">Sol</td>
+                                    <td class="info">Cachorro</td>
+                                    <td class="info">29/10/2000</td>
+                                    <td><button id="button-edit">Editar</button></td>
+                                    <td><button id="button-delete">Excluir</button></td>
+                                </tr>
+                                <tr>
+                                    <th class="info" scope="row">1</th>
+                                    <td class="info">Sol</td>
+                                    <td class="info">Cachorro</td>
+                                    <td class="info">29/10/2000</td>
+                                    <td><button id="button-edit">Editar</button></td>
+                                    <td><button id="button-delete">Excluir</button></td>
+                                </tr>
+                                <tr>
+                                    <th class="info" scope="row">1</th>
+                                    <td class="info">Sol</td>
+                                    <td class="info">Cachorro</td>
+                                    <td class="info">29/10/2000</td>
+                                    <td><button id="button-edit">Editar</button></td>
+                                    <td><button id="button-delete">Excluir</button></td>
+                                </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </main>
+            </div>
+            <script type="text/javascript" src="js/script_atendimentos.js"></script>
+        </body>
+    </html>>

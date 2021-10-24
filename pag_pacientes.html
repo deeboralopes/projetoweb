@@ -1,0 +1,173 @@
+<DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="utf-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, 
+            maximum-scale=1">
+    
+            <link rel="stylesheet" href="css/style_pacientes.css">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+            <script src="https://kit.fontawesome.com/632fa79223.js" crossorigin="anonymous"></script>
+            <title>Pacientes - Vet Calendar</title>
+        </head>
+    
+        <body>
+            <div class="s-layout">
+                <!-- Sidebar -->
+                <div class="s-layout__sidebar">
+                    <a class="s-sidebar__trigger" href="#0">
+                        <img id="icon-bars" src="img/icons/bars.png">                    
+                    </a>
+                
+                    <nav class="s-sidebar__nav">
+                        <ul>
+                            <li>
+                                <a id="home" onclick="home(); return false;" class="s-sidebar__nav-link" href="#0">
+                                    <img id="inicio" src="img/icons/home.png"><em>Início</em>
+                                </a>
+                            </li>
+                            <li>
+                                <a id="atendimentos" onclick="atendimentos(); return false;" class="s-sidebar__nav-link" href="#0">
+                                    <img id="icon" src="img/icons/atendimentos.png"><em>Atendimentos</em>
+                                </a>
+                            </li>
+                            <li>
+                                <a id="pacientes" class="s-sidebar__nav-link" href="#0">
+                                    <img id="icon" src="img/icons/pacientes.png"><em>Pacientes</em>
+                                </a>
+                            </li>
+                            <li>
+                                <a id="usuario" onclick="usuario(); return false;" class="s-sidebar__nav-link" href="#0">
+                                    <img id="icon" src="img/icons/usuario.png"><em>Usuário</em>
+                                </a>
+                            </li>
+                            <li>
+                                <a id="logout" onclick="logout(); return false;" class="s-sidebar__nav-link" href="#0">
+                                    <img id="icon" src="img/icons/logout.png"><em>Sair</em>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <!-- Content -->
+                <main class="s-layout__content">
+                    <div class=content>
+                        <h1>Pacientes</h1>
+                        <form id="patients-form">
+                            <button onclick="newPatient()" class="btn btn-small" id="new-patient">Novo atendimento</button>
+                            <input 
+                                type="text" 
+                                name="search-patient" 
+                                id="search-patient" 
+                                placeholder="Pesquisar atendimento..." />
+                            <button onclick="loadPatientsSearch()" type="submit" class="btn btn-small" id="search-patient-submit"><i class="fas fa-search"></i></button>
+                        </form>
+                        <table class="table table-striped">
+                            <thead>
+                                <tr class="first-row">
+                                    <th onclick="orderByNumber()"scope="col">No.</th>
+                                    <th onclick="orderByPatient()"scope="col">Paciente</th>
+                                    <th onclick="orderByAnimal()"scope="col">Animal</th>
+                                    <th onclick="orderByOwner()"scope="col">Dono</th>
+                                    <td></td>
+                                    <td></td>
+                                </tr>
+                            </thead>
+                            <tbody onload="loadPatients()">
+                                <tr>
+                                    <th class="info" scope="row">1</th>
+                                    <td class="info">Sol</td>
+                                    <td class="info">Cachorro</td>
+                                    <td class="info">Maria Luiza</td>
+                                    <td><button id="button-edit">Editar</button></td>
+                                    <td><button id="button-delete">Excluir</button></td>
+                                </tr>
+                                <tr>
+                                    <th class="info" scope="row">2</th>
+                                    <td class="info">Namaria</td>
+                                    <td class="info">Passaro</td>
+                                    <td class="info">Debora Lopes</td>
+                                    <td><button id="button-edit">Editar</button></td>
+                                    <td><button id="button-delete">Excluir</button></td>
+                                </tr>
+                                <tr>
+                                    <th class="info" scope="row">2</th>
+                                    <td class="info">Namaria</td>
+                                    <td class="info">Passaro</td>
+                                    <td class="info">Debora Lopes</td>
+                                    <td><button id="button-edit">Editar</button></td>
+                                    <td><button id="button-delete">Excluir</button></td>
+                                </tr>
+                                <tr>
+                                    <th class="info" scope="row">2</th>
+                                    <td class="info">Namaria</td>
+                                    <td class="info">Passaro</td>
+                                    <td class="info">Debora Lopes</td>
+                                    <td><button id="button-edit">Editar</button></td>
+                                    <td><button id="button-delete">Excluir</button></td>
+                                </tr>
+                                <tr>
+                                    <th class="info" scope="row">2</th>
+                                    <td class="info">Namaria</td>
+                                    <td class="info">Passaro</td>
+                                    <td class="info">Debora Lopes</td>
+                                    <td><button id="button-edit">Editar</button></td>
+                                    <td><button id="button-delete">Excluir</button></td>
+                                </tr>
+                                <tr>
+                                    <th class="info" scope="row">2</th>
+                                    <td class="info">Namaria</td>
+                                    <td class="info">Passaro</td>
+                                    <td class="info">Debora Lopes</td>
+                                    <td><button id="button-edit">Editar</button></td>
+                                    <td><button id="button-delete">Excluir</button></td>
+                                </tr>
+                                <tr>
+                                    <th class="info" scope="row">2</th>
+                                    <td class="info">Namaria</td>
+                                    <td class="info">Passaro</td>
+                                    <td class="info">Debora Lopes</td>
+                                    <td><button id="button-edit">Editar</button></td>
+                                    <td><button id="button-delete">Excluir</button></td>
+                                </tr>
+                                <tr>
+                                    <th class="info" scope="row">2</th>
+                                    <td class="info">Namaria</td>
+                                    <td class="info">Passaro</td>
+                                    <td class="info">Debora Lopes</td>
+                                    <td><button id="button-edit">Editar</button></td>
+                                    <td><button id="button-delete">Excluir</button></td>
+                                </tr>
+                                <tr>
+                                    <th class="info" scope="row">2</th>
+                                    <td class="info">Namaria</td>
+                                    <td class="info">Passaro</td>
+                                    <td class="info">Debora Lopes</td>
+                                    <td><button id="button-edit">Editar</button></td>
+                                    <td><button id="button-delete">Excluir</button></td>
+                                </tr>
+                                <tr>
+                                    <th class="info" scope="row">2</th>
+                                    <td class="info">Namaria</td>
+                                    <td class="info">Passaro</td>
+                                    <td class="info">Debora Lopes</td>
+                                    <td><button id="button-edit">Editar</button></td>
+                                    <td><button id="button-delete">Excluir</button></td>
+                                </tr>
+                                <tr>
+                                    <th class="info" scope="row">2</th>
+                                    <td class="info">Namaria</td>
+                                    <td class="info">Passaro</td>
+                                    <td class="info">Debora Lopes</td>
+                                    <td><button id="button-edit">Editar</button></td>
+                                    <td><button id="button-delete">Excluir</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </main>
+            </div>
+            <script type="text/javascript" src="js/script_pacientes.js"></script>
+        </body>
+    </html>>

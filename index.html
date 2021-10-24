@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="css/style_login.css">
+
+    <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.1.3/firebase-auth.js"></script>
+    <script src="script_login.js"></script>
+
+    <title>Vet Calendar</title>
+</head>
+<body>
+    <section class="side">
+        <img src="img/img-man-catdog.png" alt="">
+    </section>
+
+    <section class="main">
+        <div class="login-container">
+            <p class="title">Vet Calendar</p>
+            <div class="separator"></div>
+            <div id="login-form" class="login-form">
+                <div id="email-div" class="form-control">
+                    <input id="email" type="email" placeholder="E-mail">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div id="password-div"class="form-control">
+                    <input id="password" type="password" placeholder="Password">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <div class="fgt">
+                  <a onclick="forgotPasswordLink()" href="#" class="link">Esqueceu a senha?</a>
+                </div>
+
+                <!--*onclick="login()"-->
+                <button onclick="login()" class="submit">Login</button>
+
+                <div class="signup">
+                  <p>Ainda não tem conta? <a onclick="signupLink()" href="#" class="link">Cadastre-se</a></p>
+                </div>
+            </div>
+            <form id="signup-form" class="signup-form">
+                <div class="form-control">
+                    <input type="email" placeholder="E-mail">
+                    <i class="fas fa-user"></i>
+                </div>
+                <div>
+                    <input type="password" placeholder="Password">
+                    <i class="fas fa-lock"></i>
+                </div>
+                <button onclick="signUp()" id="bt-signup" class="submit"type="submit">Cadastrar-se</button>
+
+                <div class="back">
+                    <a onclick="backSignup()" href="#" class="link"><i id="icon-back" class="fas fa-arrow-left"></i> Voltar</a>
+                </div>
+            </form>
+            <div id="forgot-password" class="forgot-password">
+                <input type="email" placeholder="E-mail">
+                <i class="fas fa-user"></i>
+                <button onclick="password()" class="submit">Enviar senha</button>
+                <div class="back-password">
+                    <a onclick="backPassword()" href="#" class="link"><i id="icon-back" class="fas fa-arrow-left"></i> Voltar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script type="text/javascript" src="js/script_login.js"></script>
+    <script>
+        /*--------------esqueceu-a-senha-----------*/
+        function forgotPasswordLink() {
+            document.getElementById('login-form').style.display="none";
+            document.getElementById('forgot-password').style.display="block";
+        }
+
+        function backPassword() {
+            document.getElementById('forgot-password').style.display="none";
+            document.getElementById('login-form').style.display="flex";
+        }
+
+        /*--------------cadastro-------------------*/
+        function signupLink() {
+            document.getElementById('login-form').style.display="none";
+            document.getElementById('signup-form').style.display="flex";
+        }
+
+        function backSignup() {
+            document.getElementById('signup-form').style.display="none";
+            document.getElementById('login-form').style.display="flex";
+        }
+
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.3/firebase-app.js";
+
+        // Your web app's Firebase configuration
+        const firebaseConfig = {
+        apiKey: "AIzaSyAtg8zzvMGW86rwmWed98fkSjYcEs07Q1w",
+        authDomain: "vetcalendar-database.firebaseapp.com",
+        projectId: "vetcalendar-database",
+        storageBucket: "vetcalendar-database.appspot.com",
+        messagingSenderId: "432326466899",
+        appId: "1:432326466899:web:abafbe9b4a2e2904d055a6",
+        measurementId: "G-T6D1BV1H33"
+        };
+
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+
+        const auth = firebase.auth();
+
+        // login click
+        function login() {
+            var email = document.getElementById('email');
+            var password = document.getElementById('password');
+            
+            const enter = auth.signInWithEmailAndPassword(email.value, password.value);
+
+            enter.catch(e => alert(e.message));
+        }
+
+        // signup click
+        function signUp() {
+            var email = document.getElementById('email');
+            var password = document.getElementById('password');
+
+            const register = auth.createUserWithEmailAndPassword(email.value, password.value);
+            
+            register.catch(e => alert(e.message));
+            alert('Cadastro feito com sucesso!');
+        }
+
+        // active user to homepage
+        firebase.auth().onAuthStateChanged((user) => {
+            if(user) {
+                window.location = 'home.html';
+            } else {
+                alert('Erro no login, verifique email e senha');
+            }
+        })
+    </script>
+</body>
+</html>

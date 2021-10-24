@@ -1,0 +1,77 @@
+<DOCTYPE html>
+    <html lang="en">
+        <head>
+            <meta charset="utf-8" />
+            <meta name="viewport" content="width=device-width, initial-scale=1.0, 
+            maximum-scale=1">
+    
+            <link rel="stylesheet" href="css/style_usuario.css">
+            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+            <script src="https://kit.fontawesome.com/632fa79223.js" crossorigin="anonymous"></script>
+            <title>Usuário - Vet Calendar</title>
+        </head>
+    
+        <body>
+            <div class="s-layout">
+                <!-- Sidebar -->
+                <div class="s-layout__sidebar">
+                    <a class="s-sidebar__trigger" href="#0">
+                        <img id="icon-bars" src="img/icons/bars.png">                    
+                    </a>
+                
+                    <nav class="s-sidebar__nav">
+                        <ul>
+                            <li>
+                                <a class="s-sidebar__nav-link" href="#0">
+                                    <img id="home" onclick="home(); return false;" src="img/icons/home.png"><em>Início</em>
+                                </a>
+                            </li>
+                            <li>
+                                <a id="atendimentos" onclick="atendimentos(); return false;" class="s-sidebar__nav-link" href="#0">
+                                    <img id="icon" src="img/icons/atendimentos.png"><em>Atendimentos</em>
+                                </a>
+                            </li>
+                            <li>
+                                <a id="pacientes" onclick="pacientes(); return false;" class="s-sidebar__nav-link" href="#0">
+                                    <img id="icon" src="img/icons/pacientes.png"><em>Pacientes</em>
+                                </a>
+                            </li>
+                            <li>
+                                <a id="usuario" class="s-sidebar__nav-link" href="#0">
+                                    <img id="icon" src="img/icons/usuario.png"><em>Usuário</em>
+                                </a>
+                            </li>
+                            <li>
+                                <a id="logout" onclick="logout(); return false;" class="s-sidebar__nav-link" href="#0">
+                                    <img id="icon" src="img/icons/logout.png"><em>Sair</em>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <!-- Content -->
+                <main class="s-layout__content">
+                    <div class="content">
+                        <div class="inside-content">
+                            <h1>Usuário</h1>
+                            <div class="infos">
+                                <div id="email">
+                                    E-mail:
+                                    <div id="return-email">deboralopes@alunos.utfpr.edu.br</div>
+                                    <button id="bt-change" onclick="changeEmail(); return false;" type="button" class="btn btn-primary btn-sm">Alterar e-mail</button>
+                                </div>
+                                <div id="password">
+                                    Senha:
+                                    <div id="return-password">2102609</div>
+                                    <button id="bt-change" onclick="changePassword(); return false;" type="button" class="btn btn-primary btn-sm">Alterar senha</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <img id="img" src="img/img-woman-care.png">
+                </main>
+            </div>
+            <script type="text/javascript" src="js/script_usuario.js"></script>
+        </body>
+    </html>>

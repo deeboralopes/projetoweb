@@ -1,0 +1,349 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+@import url('http://fonts.cdnfonts.com/css/gatteway-signature');
+
+:root {
+    --font-normal: 'Poppins', sans-serif;
+    --font-title: 'Gatteway Signature', sans-serif;
+    --font-size: 1.1rem;
+    --text-normal: #000000;
+    --text-navbar: white;
+    --text-secondary: #606060;
+    --brand-color: white;
+    --bg-color: #96735d;
+    --bg-color-light: #C5a58e;
+    --bg-color-dark: #564539;
+    --bg-hover: white;
+    --url-bg:  url('https://i.imgur.com/p21PiES.jpg');
+    --transition-speed: 0.5s ease;
+
+    /*---------------tabela----------------*/
+    --bg-btn-search: #754e32;
+    --bg-btn-search-hover: #3b2819;
+    --bg-first-row: #754e32;;
+    --bg-row: #ffffff;
+    --font-title: #3b2819;
+    --bg-buttons: #754e32;
+    --bg-buttons-hover: #3b2819;;
+    --bt-edit: #5a3b24;
+    --bt-delete: rgb(255, 38, 0);
+    --bg-tr-hover: #96735d;
+}
+
+body:before {
+    content: " ";
+    position: absolute;
+    top: 0; 
+    left: 0;
+    width: 100%; 
+    height: 100%;  
+    opacity: .3; 
+    z-index: -1;
+    background: var(--url-bg);
+    background-size:contain;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+ }
+ 
+body {
+    font-family: sans-serif;
+    font-size: 1em;
+    color: #333;
+}
+ 
+h1 {
+   font-size: 1.4em;
+}
+ 
+em {
+    font-style: normal;
+}
+ 
+a {
+    text-decoration: none;
+    color: inherit;
+} 
+
+/*----------------sidebar------------------*/
+#icon {
+    margin-top: 0.6rem;
+    margin-left: 0.6rem;
+    height: 3rem;
+    width: 3rem;
+}
+
+#icon-bars {
+    margin-top: 0.6rem;
+    margin-left: 0.8rem;
+    height: 2.5rem;
+    width: 2.5rem;
+    color: white;
+}
+ 
+.s-sidebar__trigger {
+    z-index: 2;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4em;
+    background: var(--bg-color-dark);
+    border-radius: 15px;
+}
+
+#text__menu {
+    display: inline-flex;
+    color: white;
+    font-size: 1.8rem;
+    line-height: 2rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    vertical-align: middle;
+    padding-left: 3em;
+}
+ 
+.s-sidebar__trigger > i {
+    display: inline-block;
+    margin: 1.5em 0 0 1.5em;
+    color: white;
+}
+ 
+.s-sidebar__nav {
+    position: fixed;
+    top: 0;
+    left: -15em;
+    overflow: hidden;
+    transition: all .3s ease-in;
+    width: 15em;
+    height: 100%;
+    background: var(--bg-color);
+    color: rgba(255, 255, 255, 0.671);
+}
+ 
+.s-sidebar__nav:hover,
+.s-sidebar__nav:focus,
+.s-sidebar__trigger:focus + .s-sidebar__nav,
+.s-sidebar__trigger:hover + .s-sidebar__nav {
+    left: 0;
+}
+ 
+.s-sidebar__nav ul {
+    position: absolute;
+    top: 4em;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    width: 15em;
+}
+ 
+ .s-sidebar__nav ul li {
+    width: 100%;
+ }
+ 
+.s-sidebar__nav-link {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 4em;
+    color: var(--text-navbar);
+    font-weight: bold;
+    border-radius: 15px;
+}
+ 
+.s-sidebar__nav-link em {
+    position: absolute;
+    top: 50%;
+    left: 4em;
+    transform: translateY(-50%);
+}
+ 
+.s-sidebar__nav-link:hover {
+    background: var(--text-navbar);
+    color: var(--bg-color-dark);
+    font-weight: bold;
+}
+ 
+.s-sidebar__nav-link > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: inline-block;
+    width: 4em;
+    height: 4em;
+}
+ 
+.s-sidebar__nav-link > img::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/*----------------lista-----------------*/
+.s-layout {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+}
+ 
+.s-layout__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+}
+
+.content {
+    font-family: var(--font-normal);
+    background-color: white;
+    padding: 1rem ;
+    width: 75vw;
+    height: 90vh;
+    border-radius: 1rem;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    overflow: auto;
+}
+
+.content h1 {
+    color: black;
+    font-size: 2rem;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+#treats-form {
+	display: flex;
+}
+
+input, button {
+	appearance: none;
+	border: none;
+	outline: none;
+	background: none;
+}
+
+#new-treat {
+    background: var(--bg-buttons);
+    color: white;
+    border-radius: 0.8rem;
+    margin-right: 1rem;
+}
+
+#new-treat:hover {
+    background: var(--bg-buttons-hover);
+}
+
+#search-treat {
+	flex: 1 1 0%;
+	background-color: white;
+ 	padding-left: 1rem;
+ 	border-radius: 0.8rem;
+	margin-right: 1rem;
+	color: var(--font-search);
+	font-size: 1rem;
+    border: 1px solid #afafaf;
+}
+
+#search-treat::placeholder {
+	color: rgb(82, 82, 82);
+}
+
+#search-treat-submit {
+    border-radius: 0.8rem;
+	cursor: pointer;
+	transition: 0.4s;
+    background: var(--bg-btn-search);
+    color: white;
+}
+
+#search-treat-submit:hover {
+    background: var(--bg-buttons-hover);
+}
+
+#search-treat-submit:active {
+	opacity: 0.6;
+}
+
+.content table .first-row {
+    background: var(--bg-first-row);
+    color: white;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.content table tr {
+    text-align: center;
+    cursor: pointer;
+}
+
+.content table tbody tr:hover {
+    color: white;
+    background: var(--bg-tr-hover);
+}
+
+#button-edit {
+    color: var(--bt-edit);
+    font-weight: bold;
+    cursor: pointer;
+
+}
+
+#button-edit:hover {
+    color: white;
+}
+
+#button-delete {
+    color: var(--bt-delete);
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#button-delete:hover {
+    color: white;
+}
+
+@media (min-width: 42em) {
+    .s-layout__content {
+       margin-left: 4em;
+    }
+    
+    /* Sidebar */
+    .s-sidebar__trigger {
+        color: white;
+        text-decoration: none;
+        width: 4em;
+    }
+    
+    .s-sidebar__nav {
+       width: 4em;
+       left: 0;
+    }
+    
+    .s-sidebar__nav:hover,
+    .s-sidebar__nav:focus,
+    .s-sidebar__trigger:hover + .s-sidebar__nav,
+    .s-sidebar__trigger:focus + .s-sidebar__nav {
+       width: 15em;
+    }
+ }
+ 
+@media (min-width: 68em) {
+    .s-layout__content {
+       margin-left: 15em;
+    }
+    
+    /* Sidebar */
+    .s-sidebar__trigger {
+       display: none
+    }
+
+    .s-sidebar__nav {
+       width: 15em;
+    }
+    
+    .s-sidebar__nav ul {
+       top: 1.3em;
+    }
+}
+ 
